@@ -1,0 +1,126 @@
+ЧТО ТАКОЕ ВИМ
+
+ЧЕМ ОТЛИЧАЕТСЯ ОТ ОСТАЛЬНОГО
+
+ЗАЧЕМ ЕГО ИСПОЛЬЗОВАТЬ
+
+ОСНОВНЫЕ КОНЦЕПЦИИ РАБОТЫ С ВИМ
+
+КАК ЕГО НАСТРАИВАТЬ
+
+КАК СТАВТЬ К НЕМУ ДОПОЛНЕНИЯ
+
+УСТАНОВКА ПЛАГИНОВ
+- Есть два варианта - с помощью плагин-менеджера vim-plug (https://github.com/junegunn/vim-plug) https://stackoverflow.com/questions/48700563/how-do-i-install-plugins-in-neovim-correctly
+- c посщью вим-палга это делается так: 
+    - редактируешь файл init.vim (~/.config/nvim/init.vim)
+  
+    - между call plug#begin() и call plug#end() поместить название плагина (название гитхаб-профиля и репо, например  aklt/plantuml-syntax 
+
+      call plug#begin()
+      Plug 'aklt/plantuml-syntax '  https://github.com/aklt/plantuml-syntax
+      call plug#end()
+      nvim -> :PlugInstall -> :UpdateRemotePlugins ->:q!
+
+НАСТРОЙКИ - ~/.config/nvim/init.vim
+
+Некоторые комбо - http://najomi.org/vim
+####
+ПЕРЕМЕЩЕНИЕ:
+
+hjkl
+w - начало слова
+e - конец слов
+b - назад по словам
+
+} -параграф
+
+( и ) - перемещения по скобкам изнути наружу
+
+W & B - перемещения п ЭЛЕМЕНТАМ, как w и b - по словам
+
+gg - начало файла
+
+G - низ файла
+
+2w 3b - перемешения + число на сколько
+
+######
+Работа с кусками текста:
+
+vip - выделить параграф
+viw - выделить слово
+
+vi( - выделить всё между ближайшими круглыми скобками (аналогично 'vi[' и 'vi{' для квадратных и фигурных скобок)
+va( - выделить всё между ближайшими круглыми скобками, включая сами скобки
+v2j - выделить на две строки вниз
+
+dip - вырезать параграф
+di( - вырезать содержимое круглых скобок
+da( - вырезать содержимое круглых скобок и сами скобки
+
+<действие> . -нажатие на . повторит твои прошлые действия
+
+
+######
+Выделение и замена
+
+Shift+v или 0v$ - выделить строку
+#, * - выделить слово под курсором и перемещаться по ним
+
+shft + D /shft+ J удалить стрку до конца /  слепить две строки
+
+ct_ - заменить до символа
+
+yy - скопировать строку
+yiw - скопировать слово
+
+
+###########
+оборачивание в скобки - https://github.com/tpope/vim-surround
+                        https://github.com/guns/vim-sexp
+
+ОБЕРНУТЬ - yss<symbol> - обернуть в символы. Наприер yss[m yss"
+УДАЛИТЬ ОБЕРТКИ - ds<symbol>, ds"
+ИЗМЕНИТЬ - cs<symbol>
+ОБЕРНУТЬ НЕ ВСЮ СТРОКУ - ysiw] -> [Hello] world
+\w - ЗАБРАТЬ В СКОБКИ элемент
+\i - ЗАБРАТЬ В СКОБКИ форму, где лежит элемент
+== - выравнивание кода
+\" - ВЫНЕСТИ ИЗ СКОБОК
+\o - удалить родительский элемент
+
+############
+КОМАНДЫ (вызываются из режима перемещения, нажатием shift)
+
+:color <name>             выбор цветовой схемы. цветвые схемы: /usr/local/share/vim/vim72/colors/*.vim
+:pwd                      текущий каталог
+:colo <TAB> - список цветовых схем. Хорошие -industry. elflord, torte
+:syntax on                включить подсветку
+:syntax off               выключить подсветку (по умолчанию)
+:resize-pane -D (Resizes the current pane down)
+:set nu - номера строк
+
+ПОИСК
+:/<word>  :noh - убрать результат поиска
+
+:s/foo/bar/g 	Change each 'foo' to 'bar' in the current line.
+:%s/foo/bar/g 	Change each 'foo' to 'bar' in all the lines.
+:5,12s/foo/bar/g 	Change each 'foo' to 'bar' for all lines from line 5 to line 12 (inclusive). 
+
+######
+ВСЯКОЕ
+
+/t - послать из вима
+gUw - UPPER!!
+
+
+Копипаста в Тмукс
+    Enter copy mode: <prefix>+[
+    Start copy: <Space>
+    Copy text: <Enter>
+    Paste text: <prefix>+]
+
+
+
+== - FORMATING!!!
